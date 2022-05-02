@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Odia&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #252424;
+}
+
+.cardSize{
+    width: 20rem;
+    background: linear-gradient(to bottom, white, gray);
+}
+
+.imgSize{
+    width: 240px;
+    height: 208px;
+}
+
+.h1Style{
+    color: rgb(83, 194, 79);
+    text-align: center;
+    font-family: 'Anek Odia', sans-serif;
+    margin-top: 20px;
+    font-size: 72px;
+    font-weight: bold;
+}
