@@ -1,29 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Anek+Odia&display=swap');
+*{
+    margin:0;
+    padding:0;
+}
 
-* {
+body{ 
+    background-image: url("../img/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
     margin: 0;
-    padding: 0;
+    height: auto;
 }
 
-body {
-    background-color: #252424;
+.logoImg{
+    width: 200px;
 }
 
-.cardSize{
-    width: 20rem;
-    background: linear-gradient(to bottom, white, gray);
+.cartIcon{
+    width: 36px;
 }
 
-.imgSize{
-    width: 240px;
-    height: 208px;
+.btnCart:focus{
+    text-decoration: none;
+    outline: none;
+    box-shadow: none;
 }
 
-.h1Style{
-    color: rgb(83, 194, 79);
-    text-align: center;
-    font-family: 'Anek Odia', sans-serif;
-    margin-top: 20px;
-    font-size: 72px;
+.listCartStyle{
+    list-style: none;
+}
+
+.productSize{
+    width: 180px;
+}
+
+.iconCartSize{
+    width: 80px;
+}
+
+.iconTrashSize{
+    width: 16px;
+    display: flex;
+}
+
+.inputNumberSize{
+    width: 40px;
+}
+
+.totalStyle{
     font-weight: bold;
 }

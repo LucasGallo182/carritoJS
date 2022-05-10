@@ -5,83 +5,212 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MallTop - Online Shop</title>
+    <title>Mall Top - Tienda Online</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-    <div class="container-fluid">
-        <h1 class="h1Style">MALLTOP</h1>
-        <div class="row justify-content-center">
-            <div class="card col-lg-12 align-items-center m-5 cardSize">
-                <div id="mostrar"></div>
+    <header>
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#"><img src="./img/logo.png" alt="logo" class="logoImg"></a>
+                <button class="btn btnCart" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><img
+                        src="./img/shopping-cart-icon.png" class="cartIcon"></button>
+                </button>
+            </div>
+            <div class="offcanvas offcanvas-end bg-light text-dark" data-bs-scroll="true" data-bs-backdrop="false"
+                tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">CARRITO</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body" id="divItemCartContainer">
+                    <ul class="listCartStyle" id="ulCarrito">
+                        <li>
+                            <table id="listaCarrito" class="table">
+                                <tbody>
+                                </tbody>
+                            </table>
+                            <p><strong id="precioTotal">Total: $<span id="precioTotal"></span></strong></p>
+                            <button id="vaciarCarrito" class="btn btn-sm btn-warning">Vaciar carrito</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="card bg-transparent container-fluid border-0">
+                <div class="card-body">
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Ingrese su busqueda..."
+                            aria-label="Search">
+                        <button class="btn btn-success" type="submit">Buscar</button>
+                    </form>
+                </div>
             </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="card col-sm-12 col-md-6 col-lg-3 align-items-center m-5 cardSize">
-                <img src="./img/asus-tuf-gaming-m3rgb.png" alt="asus" class="imgSize">
-                <div class="card-body">
-                    <h5 class="card-title">Mouse Asus Tuf Gaming</h5>
-                    <p class="card-text text-center">$3000</p>
-                </div>
-            </div>
-            <div class="card col-sm-12 col-md-6 col-lg-3 align-items-center m-5 cardSize">
-                <img src="./img/asus-tuf-gaming-m3rgb.png" alt="asus" class="imgSize">
-                <div class="card-body">
-                    <h5 class="card-title">Mouse Asus Tuf Gaming</h5>
-                    <p class="card-text text-center">$3000</p>
-                </div>
-            </div>
-            <div class="card col-sm-12 col-md-6 col-lg-3 align-items-center m-5 cardSize">
-                <img src="./img/hyperx-alloy-elite2-rgb.png" alt="asus" class="imgSize">
-                <div class="card-body">
-                    <h5 class="card-title">Teclado HyperX Alloy RGB</h5>
-                    <p class="card-text text-center">$4000</p>
-                </div>
-            </div>
-            <div class="card col-sm-12 col-md-6 col-lg-3 align-items-center m-5 cardSize">
-                <img src="./img/hyperx-alloy-elite2-rgb.png" alt="asus" class="imgSize">
-                <div class="card-body">
-                    <h5 class="card-title">Teclado HyperX Alloy RGB</h5>
-                    <p class="card-text text-center">$4000</p>
-                </div>
-            </div>
-            <div class="card col-sm-12 col-md-6 col-lg-3 align-items-center m-5 cardSize">
-                <img src="./img/logitech-g733-blue-wireless.png" alt="asus" class="imgSize">
-                <div class="card-body">
-                    <h5 class="card-title">Auricular Logitech G733</h5>
-                    <p class="card-text text-center">$5000</p>
-                </div>
-            </div>
-            <div class="card col-sm-12 col-md-6 col-lg-3 align-items-center m-5 cardSize">
-                <img src="./img/logitech-g733-blue-wireless.png" alt="asus" class="imgSize">
-                <div class="card-body">
-                    <h5 class="card-title">Auricular Logitech G733</h5>
-                    <p class="card-text text-center">$5000</p>
-                </div>
-            </div>
-            <div class="card col-sm-12 col-md-6 col-lg-3 align-items-center m-5 cardSize">
-                <img src="./img/deepcool-55-mesh-rgb.png" alt="asus" class="imgSize">
-                <div class="card-body">
-                    <h5 class="card-title">Gabinete Deepcool Mesh 55</h5>
-                    <p class="card-text text-center">$6000</p>
-                </div>
-            </div>
-            <div class="card col-sm-12 col-md-6 col-lg-3 align-items-center m-5 cardSize">
-                <img src="./img/deepcool-55-mesh-rgb.png" alt="asus" class="imgSize">
-                <div class="card-body">
-                    <h5 class="card-title">Gabinete Deepcool Mesh 55</h5>
-                    <p class="card-text text-center">$6000</p>
+        <div class="row">
+            <div class="card container-fluid mb-4">
+                <div class="row">
+                        <h3 class="col-md-12">Productos destacados:</h3>
+                    <div class="col-2">
+                        <div class="card border-0">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item border-bottom-0">
+                                    <strong>CATEGORIAS</strong>
+                                </li>
+                                <li class="list-group-item border-bottom-0">
+                                    <input type="radio" id="gabinete">
+                                    <label for="gabinete">Gabinetes</label>
+                                </li>
+                                <li class="list-group-item border-bottom-0">
+                                    <input type="radio" id="Auriculares">
+                                    <label for="gabinete">Auriculares</label>
+                                </li>
+                                <li class="list-group-item border-bottom-0">
+                                    <input type="radio" id="Teclados">
+                                    <label for="gabinete">Teclados</label>
+                                </li>
+                                <li class="list-group-item border-bottom-0">
+                                    <input type="radio" id="Placas de video">
+                                    <label for="gabinete">Placas de video</label>
+                                </li>
+                                <li class="list-group-item">
+                                    <button class="btn btn-success" type="submit">Aplicar</button>
+                                </li>
+                                <li class="list-group-item border-bottom-0">
+                                    <strong>RANGO DE PRECIOS</strong>
+                                </li>
+                                <li class="list-group-item border-bottom-0">
+                                    <form>
+                                        <div class="form-group">
+                                            <ul class="listCartStyle">
+                                                <li><label for="formControlRange">Mínimo:</label></li>
+                                                <li><input type="range" class="form-control-range"
+                                                        id="formControlRange"></li>
+                                            </ul>
+                                        </div>
+                                    </form>
+                                </li>
+                                <li class="list-group-item border-bottom-0">
+                                    <form>
+                                        <div class="form-group">
+                                            <ul class="listCartStyle">
+                                                <li><label for="formControlRange">Máximo:</label></li>
+                                                <li><input type="range" class="form-control-range"
+                                                        id="formControlRange"></li>
+                                            </ul>
+                                        </div>
+                                    </form>
+                                </li>
+                                <li class="list-group-item border-bottom-0">
+                                    <button class="btn btn-success" type="submit">Aplicar</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-10">
+                        <div class="card border-0">
+                            <main id="contenedor-productos" class="d-flex flex-wrap justify-content-center m-2">
+                                <div class="card m-2 bd-highlight align-items-center items" style="width: 18rem">
+                                    <img src="./img/deepcool-matrexx-70rgb.png" class="card-img-top productSize" alt="card image">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Gabinete Deepcol Matrexx 70 RGB 3F</h5>
+                                        <p class="card-text">$<strong>14800</strong>
+                                        <button id="agregar" class="btn btn-sm btn-success agregarCarrito" data-id="1">Agregar</button>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="card m-2 bd-highlight align-items-center items" style="width: 18rem">
+                                    <img src="./img/deepcool-55-mesh-rgb.png" class="card-img-top productSize" alt="card image">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Gabinete Deepcol 55 Mesh RGB</h5>
+                                        <p class="card-text">$<strong>20200</strong>
+                                        <button id="agregar" class="btn btn-sm btn-success agregarCarrito" data-id="2">Agregar</button>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="card m-2 bd-highlight align-items-center items" style="width: 18rem">
+                                    <img src="./img/logitech-g733-blue-wireless.png" class="card-img-top productSize" alt="card image">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Auriculares Logitech G733 Blue Wireless</h5>
+                                        <p class="card-text">$<strong>18800</strong>
+                                        <button id="agregar" class="btn btn-sm btn-success agregarCarrito" data-id="3">Agregar</button>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="card m-2 bd-highlight align-items-center items" style="width: 18rem">
+                                    <img src="./img/logitech-g733-lila-wireless.png" class="card-img-top productSize" alt="card image">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Auriculares Logitech G733 Lila Wireless</h5>
+                                        <p class="card-text">$<strong>18500</strong>
+                                        <button id="agregar" class="btn btn-sm btn-success agregarCarrito" data-id="4">Agregar</button>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="card m-2 bd-highlight align-items-center items" style="width: 18rem">
+                                    <img src="./img/hyperx-alloy-core-rgb.png" class="card-img-top productSize" alt="card image">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Teclado HyperX Alloy Core RGB Membrana</h5>
+                                        <p class="card-text">$<strong>5500</strong>
+                                        <button id="agregar" class="btn btn-sm btn-success agregarCarrito" data-id="5">Agregar</button>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="card m-2 bd-highlight align-items-center items" style="width: 18rem">
+                                    <img src="./img/coolermaster-mk110-mem-chanical.png" class="card-img-top productSize" alt="card image">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Teclado CoolerMaster MK-110 RGB Mem-Chanical</h5>
+                                        <p class="card-text">$<strong>5200</strong>
+                                        <button id="agregar" class="btn btn-sm btn-success agregarCarrito" data-id="6">Agregar</button>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="card m-2 bd-highlight align-items-center items" style="width: 18rem">
+                                    <img src="./img/msi-geforcegt710.png" class="card-img-top productSize" alt="card image">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Placa de Video MSI GeForce GT710 1Gb DDR3</h5>
+                                        <p class="card-text">$<strong>6500</strong>
+                                        <button id="agregar" class="btn btn-sm btn-success agregarCarrito" data-id="7">Agregar</button>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="card m-2 bd-highlight align-items-center items" style="width: 18rem">
+                                    <img src="./img/palit-gtx1050ti.png" class="card-img-top productSize" alt="card image">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Placa de Video Palit GeForce GTX1050ti 4GB</h5>
+                                        <p class="card-text">$<strong>12000</strong>
+                                        <button id="agregar" class="btn btn-sm btn-success agregarCarrito" data-id="8">Agregar</button>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="card m-2 bd-highlight align-items-center items" style="width: 18rem">
+                                    <img src="./img/gigabyte-rtx3090.png" class="card-img-top productSize" alt="card image">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Placa de Video Gigabyte GeForce RTX3090 24Gb OC</h5>
+                                        <p class="card-text">$<strong>312000</strong>
+                                        <button id="agregar" class="btn btn-sm btn-success agregarCarrito" data-id="9">Agregar</button>
+                                        </p>
+                                    </div>
+                                </div>
+                            </main>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="./js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
+    <script src="./js/main.js"></script>
 </body>
 
 </html>
