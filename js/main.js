@@ -1,9 +1,92 @@
-//Variables
+//Array de Componentes
+const componentes = [{
+    id: 1,
+    nombre: 'Gabinete Aerocool Thunder X3 Cronus RGB',
+    precio: 14800,
+    imagen: './img/deepcool-matrexx-70rgb.png',
+    cant: 2
+},
+{
+    id: 2,
+    nombre: 'Gabinete Deepcol Matrexx 70 RGB 3F',
+    precio: 20200,
+    imagen: './img/deepcool-55-mesh-rgb.png',
+    cant: 3
+
+},
+{
+    id: 3,
+    nombre: 'Auriculares Logitech G733 Blue Wireless',
+    imagen: './img/logitech-g733-blue-wireless.png',
+    precio: 18800,
+    cant: 6
+},
+{
+    id: 4,
+    nombre: 'Auriculares Logitech G733 Lila Wireless',
+    imagen: './img/logitech-g733-lila-wireless.png',
+    precio: 18500,
+    cant: 7
+},
+{
+    id: 5,
+    nombre: 'Teclado HyperX Alloy Core RGB Membrana',
+    imagen: './img/hyperx-alloy-core-rgb.png',
+    precio: 5500,
+    cant: 4
+},
+{
+    id: 6,
+    nombre: 'Teclado CoolerMaster MK-110 RGB Mem-Chanical',
+    imagen: './img/coolermaster-mk110-mem-chanical.png',
+    precio: 5200,
+    cant: 5
+},
+{
+    id: 7,
+    nombre: 'Placa de Video MSI GeForce GT710 1Gb DDR3',
+    imagen: './img/msi-geforcegt710.png',
+    precio: 6500,
+    cant: 8
+},
+{
+    id: 8,
+    nombre: 'Placa de Video Palit GeForce GTX1050ti 4GB GDDR5',
+    imagen: './img/palit-gtx1050ti.png',
+    precio: 12000,
+    cant: 9
+},
+{
+    id: 9,
+    nombre: 'Placa de Video Gigabyte GeForce RTX3090 24Gb OC',
+    imagen: './img/gigabyte-rtx3090.png',
+    precio: 12000,
+    cant: 10
+}
+]
+
+//Variables carrito
 const divCarrito = document.querySelector('#divItemCartContainer'); //querySelector se puede usar con class o #Id (el primero que encuentra de Id)
 const listaComponentes = document.querySelector('#contenedor-productos');
 const tableCarrito = document.querySelector('#listaCarrito tbody');
 const vaciarCarrito = document.querySelector('#vaciarCarrito');
 let carrito = [];
+
+//Agregar al HTML
+componentes.forEach((componente) =>{
+    const insertaHTML = `
+    <div class="card m-2 bd-highlight align-items-center items" style="width: 18rem">
+        <img src="${componente.imagen}" class="card-img-top productSize" alt="card image">
+        <div class="card-body text-center">
+            <h5 class="card-title">${componente.nombre}</h5>
+            <p class="card-text">$<strong>${componente.precio}</strong>
+            <button id="agregar" class="btn btn-sm btn-success agregarCarrito" data-id="${componente.id}">Agregar</button>
+            </p>
+        </div>
+    </div>
+    `
+    listaComponentes.innerHTML += insertaHTML;
+})
 
 cargarEventListeners();
 function cargarEventListeners() {
