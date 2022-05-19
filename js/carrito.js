@@ -14,17 +14,32 @@ function cargarComponentesAlCarrito() {
 
 //Voy pasando por ID para agregarlo al array carrito y se lo paso a buscarComponente
 function agregarAlCarrito(id) {
-    let componente = buscarComponente(id);
     let componentes_carrito = cargarComponentesAlCarrito();
-    componentes_carrito.push(componente);
+    const posicion_en_carrito = componentes_carrito.findIndex(elemento => elemento.id == id);
+
+    //seteo la cantidad en 1 si no existe el componente ya agregado (-1 se pone cuando no existe)
+    if (posicion_en_carrito === -1){
+        const componente = buscarComponente(id);
+        componente.cantidad = 1;
+        componentes_carrito.push(componente);
+    } else {
+        //si ya fue agregado le sumo uno
+        componentes_carrito[posicion_en_carrito].cantidad += 1;
+    }
+
     localStorage.setItem("carrito", JSON.stringify(componentes_carrito));
     actualizarBotonCarrito();
+    cargarComponentesSeleccionadosAlCarrito();
+    alertaAgregarAlCarrito();
 }
 
 //Remuevo toda la LocalStorage de carrito
 function eliminarCarrito() {
     localStorage.removeItem("carrito");
     actualizarBotonCarrito();
+    cargarComponentesSeleccionadosAlCarrito();
+    //Llamo alerta
+    alertaVaciarCarrito();
 }
 
 //Actualizo badge con length
@@ -36,8 +51,35 @@ function actualizarBotonCarrito() {
     `
     document.querySelector('.boton-carrito').innerHTML = contenido;
     cargarComponentesSeleccionadosAlCarrito();
-} 
+}
 
+//Sumo una cantidad al carrito
+function agregarComponente(id){
+    let componentes_carrito = cargarComponentesAlCarrito();
+    const posicion_en_carrito = componentes_carrito.findIndex(elemento => elemento.id == id);
+    componentes_carrito[posicion_en_carrito].cantidad += 1;
+    localStorage.setItem("carrito", JSON.stringify(componentes_carrito));
+    actualizarBotonCarrito();
+    cargarComponentesSeleccionadosAlCarrito();
+}
+
+//Elimino de a un componente buscandolo por id
+function eliminarComponente(id){
+    let componentes_carrito = cargarComponentesAlCarrito();
+    const posicion_en_carrito = componentes_carrito.findIndex(elemento => elemento.id == id);
+    componentes_carrito[posicion_en_carrito].cantidad -= 1;
+
+    if (componentes_carrito[posicion_en_carrito].cantidad == 0) {
+        componentes_carrito = componentes_carrito.filter(x => x.id != id);
+    }
+
+    localStorage.setItem("carrito", JSON.stringify(componentes_carrito));
+    actualizarBotonCarrito();
+    cargarComponentesSeleccionadosAlCarrito();
+    alertaEliminarComponenteCarrito();
+}
+
+//Pegar carrito de LS a HTML
 function cargarComponentesSeleccionadosAlCarrito() {
     let componentes = cargarComponentesAlCarrito();
     let contenidoCarritoHTML = "";
@@ -51,13 +93,13 @@ function cargarComponentesSeleccionadosAlCarrito() {
             <div class="detail-box">
                 <div class="cart-product-title">${componente.nombre}</div>
                 <div class="cart-price">$${componente.precio}</div>
-                <input type="number" value="1" class="cart-quantity">
+                <input type="number" value="${componente.cantidad}" min="0" class="cart-quantity">
             </div>
             <!-- Vaciar Carrito -->
-            <i class='bx bxs-trash cart-remove'></i>
+            <i class='bx bxs-trash cart-remove' onclick='eliminarComponente(${componente.id});'></i>
         </div>
         `;
-        total += componente.precio;
+        total += componente.precio * componente.cantidad;
     }
 
     document.querySelector(".cart-content").innerHTML = contenidoCarritoHTML;
