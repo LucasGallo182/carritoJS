@@ -32,7 +32,7 @@
                     <!-- Total -->
                     <div class="total">
                         <div class="total-title">Total:</div>
-                        <div class="total-price"></div>
+                        <div name="total" class="total-price"></div>
                     </div>
                     <!-- Boton Comprar -->
                     <a href="#" class="btn-compra">Comprar</a>
@@ -55,41 +55,41 @@
         <h2 class="section-title">Finalizar compra <span class="prod-destacados-symbol">></span></h2>
         <div class="form-buy">
             <!-- Contenido Formulario desde JS-->
-            <form class="form">
+            <form id="form" class="form">
                 <div class="errorMsg">
                     <p class="campoObligatorio">Por favor complete los campos que contienen "*".</p>
                 </div>
                 <div class="inputContainer">
                     <label for="" class="label">Nombre y apellido <span class="campoObligatorio">*</span></label>
-                    <input type="text" id="nombre" class="input">
+                    <input type="text" id="nombre" name="nomape" class="input">
                 </div>
                 <div class="inputContainer">
                     <div class="inputDireccion">
                         <div class="divDireccion">
                             <label for="" class="label">Dirección <span class="campoObligatorio">*</span></label>
-                            <input type="text" id="direccion" class="input">
+                            <input type="text" id="direccion" name="dir" class="input">
                         </div>
                         <div class="divDireccionNro">
                             <label for="" class="label">Número <span class="campoObligatorio">*</span></label>
-                            <input type="text" id="numeroDir" class="input">
+                            <input type="text" id="numeroDir" name="nrodir" class="input">
                         </div>
                         <div class="divPiso">
                             <label for="" class="label">Piso</label>
-                            <input type="text" id="direccion" class="input">
+                            <input type="text" id="direccion" name="piso" class="input">
                         </div>
                         <div class="divDepto">
                             <label for="" class="label">Dto.</label>
-                            <input type="text" id="direccion" class="input">
+                            <input type="text" id="direccion" name="depto" class="input">
                         </div>
                     </div>
                 </div>
                 <div class="inputContainer">
                     <label for="" class="label">Localidad <span class="campoObligatorio">*</span></label>
-                    <input type="text" id="localidad" class="input">
+                    <input type="text" id="localidad" name="localidad" class="input">
                 </div>
                 <div class="inputContainer">
                     <label for="" class="label">Teléfono <span class="campoObligatorio">*</span></label>
-                    <input type="text" id="telefono" class="input">
+                    <input type="text" id="telefono" name="telefono" class="input">
                 </div>
                 <div class="inputContainer">
                     <label for="" class="label">Número de D.N.I. <span class="campoObligatorio">*</span></label>
@@ -97,13 +97,17 @@
                 </div>
                 <div class="inputContainer">
                     <label for="" class="label">E-mail <span class="campoObligatorio emailValid">* </span></label>
-                    <input type="text" id="email" class="input">
+                    <input type="text" id="email" name="reply_to" class="input">
                 </div>
-                <input type="button" class="submitBtn" id="finalizar" value="Finalizar">
+                <input type="submit" class="submitBtn" id="finalizar" value="Finalizar">
                 <input type="reset" class="resetBtn" value="Limpiar">
+                <div id="pedidoParaEnviar" hidden>
+                </div>
             </form>
         </div>
     </section>
+    <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./js/validarFormulario.js"></script>
     <script src="./js/carrito.js"></script>

@@ -23,4 +23,49 @@ function validarFormulario() {
     }
 }
 
-document.getElementById("finalizar").addEventListener("click", validarFormulario);
+const btnFinalizar = document.getElementById("finalizar");
+btnFinalizar.addEventListener("click", validarFormulario);
+
+//EmailJS
+function emailEnviado() {
+    Swal.fire({
+        position: 'bottom-end',
+        text: `El e-mail ha sido enviado correctamente`,
+        color: 'black',
+        background: '#00dc85',
+        showConfirmButton: false,
+        width: '21vw',
+        timer: 2000
+    })
+}
+
+//forEach recorro array carrito
+/* let carrito = JSON.parse(localStorage.getItem("carrito"));
+for (e of carrito) {
+    let nombreProducto = e.nombre;
+} */
+
+emailjs.init('jhwcTeXw26aKnEX3B');
+
+document.getElementById('form')
+    .addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        btnFinalizar.value = 'Enviando...';
+
+        const serviceID = 'default_service';
+        const templateID = 'template_j73sz44';
+
+        emailjs.sendForm(serviceID, templateID, this)
+            .then(() => {
+                btnFinalizar.value = 'Finalizar';
+                emailEnviado();
+                setTimeout(() => {
+                    window.location.href = "index.html";
+                }, 3000);
+                eliminarCarrito();
+            }, (err) => {
+                btnFinalizar.value = 'Finalizar';
+                alert(JSON.stringify(err));
+            });
+    });

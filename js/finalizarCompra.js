@@ -2,6 +2,8 @@ function mostrarEnFinalizarCompra(){
     if(document.querySelector('.resumenCompra')){
         let componentes = cargarComponentesAlCarrito(); 
         let resumenCompra = document.querySelector('.resumenCompra');
+        let divPedido = document.querySelector('#pedidoParaEnviar');
+        let divPedidoHTML = "";
         let resumenCompraHTML = "";
 
         if(componentes.length == 0){
@@ -37,6 +39,9 @@ function mostrarEnFinalizarCompra(){
                 </tr>
                 `;
                 total += componente.precio * componente.cantidad;
+                divPedidoHTML += `<ul>
+                <li><input type="text" name="datosproducto" value=" ${componente.nombre} x${componente.cantidad}: $${subtotal}"></li>
+                </ul>`;
             }
 
             resumenCompraHTML += `
@@ -47,7 +52,9 @@ function mostrarEnFinalizarCompra(){
                 </div>
             </div>
             `;
+            divPedidoHTML += `<input type="text" name="totalenvio" value="Total: $${total}">`;
             resumenCompra.innerHTML = resumenCompraHTML;
+            divPedido.innerHTML = divPedidoHTML;
         }
     }
 }
