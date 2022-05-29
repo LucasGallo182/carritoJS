@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mall Top - Tienda Online</title>
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- Box Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <!-- ToastifyJS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <!-- NavBar -->
+        <div class="nav container">
+            <a href="#"><img src="./img/logo.png" class="logo"></a>
+            <!-- Icono Carrito -->
+            <div class="boton-volver">
+                <a href="./index.html"><img src="./img/back-arrow-icon.png" class="cart-icon" id="cart-icon"></a>
+            </div>
+            <!-- Carrito -->
+            <div class="cart">
+                <div>
+                    <h2 class="cart-title">Carrito</h2>
+                    <!-- Contenido Carrito -->
+                    <div class="cart-content">
+                    </div>
+                    <!-- Total -->
+                    <div class="total">
+                        <div class="total-title">Total:</div>
+                        <div name="total" class="total-price"></div>
+                    </div>
+                    <!-- Boton Comprar -->
+                    <a href="#" class="btn-compra">Comprar</a>
+                    <!-- Boton Vaciar Carrito -->
+                    <button type="button" class="btn-vaciar">Vaciar</button>
+                    <!-- Boton Cerrar Carrito -->
+                    <i class='bx bx-x' id="close-cart"></i>
+                </div>
+                <!-- Fin Carrito -->
+            </div>
+        </div>
+    </header>
+    <!-- Tienda -->
+    <section class="shop container">
+        <h2 class="section-title">Detalle del pedido <span class="prod-destacados-symbol">></span></h2>
+        <!-- Contenido Tienda -->
+        <div class="resumenCompra">
+            <!-- Detalle del carrito -->
+        </div>
+        <h2 class="section-title">Finalizar compra <span class="prod-destacados-symbol">></span></h2>
+        <div class="form-buy">
+            <!-- Contenido Formulario desde JS-->
+            <form id="form" class="form">
+                <div class="errorMsg">
+                    <p class="campoObligatorio">Por favor complete los campos que contienen "*".</p>
+                </div>
+                <div class="inputContainer">
+                    <label for="" class="label">Nombre y apellido <span class="campoObligatorio">*</span></label>
+                    <input type="text" id="nombre" name="nomape" class="input">
+                </div>
+                <div class="inputContainer">
+                    <div class="inputDireccion">
+                        <div class="divDireccion">
+                            <label for="" class="label">Dirección <span class="campoObligatorio">*</span></label>
+                            <input type="text" id="direccion" name="dir" class="input">
+                        </div>
+                        <div class="divDireccionNro">
+                            <label for="" class="label">Número <span class="campoObligatorio">*</span></label>
+                            <input type="text" id="numeroDir" name="nrodir" class="input">
+                        </div>
+                        <div class="divPiso">
+                            <label for="" class="label">Piso</label>
+                            <input type="text" id="direccion" name="piso" class="input">
+                        </div>
+                        <div class="divDepto">
+                            <label for="" class="label">Dto.</label>
+                            <input type="text" id="direccion" name="depto" class="input">
+                        </div>
+                    </div>
+                </div>
+                <div class="inputContainer">
+                    <label for="" class="label">Localidad <span class="campoObligatorio">*</span></label>
+                    <input type="text" id="localidad" name="localidad" class="input">
+                </div>
+                <div class="inputContainer">
+                    <label for="" class="label">Teléfono <span class="campoObligatorio">*</span></label>
+                    <input type="text" id="telefono" name="telefono" class="input">
+                </div>
+                <div class="inputContainer">
+                    <label for="" class="label">Número de D.N.I. <span class="campoObligatorio">*</span></label>
+                    <input type="text" id="dni" class="input">
+                </div>
+                <div class="inputContainer">
+                    <label for="" class="label">E-mail <span class="campoObligatorio emailValid">* </span></label>
+                    <input type="text" id="email" name="reply_to" class="input">
+                </div>
+                <input type="submit" class="submitBtn" id="finalizar" value="Finalizar">
+                <input type="reset" class="resetBtn" value="Limpiar">
+                <div id="pedidoParaEnviar" hidden>
+                </div>
+            </form>
+        </div>
+    </section>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="./js/validarFormulario.js"></script>
+    <script src="./js/carrito.js"></script>
+    <script src="./js/finalizarCompra.js"></script>
+</body>
+
+</html>
