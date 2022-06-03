@@ -6,7 +6,7 @@ function cargarComponentes() {
     for (const componente of componentes){
         contenidoHTML += `
         <div class="producto-box">
-            <img src="${componente.imagen}" alt="${componente.nombre}" class="product-img">
+            <img onclick="verComponente(${componente.id});" src="${componente.imagen}" alt="${componente.nombre}" class="product-img">
             <h2 class="product-title">${componente.nombre}</h2>
             <span class="price">$${componente.precio}</span>
             <a href="#" onclick="agregarAlCarrito(${componente.id});" class="add-cart">Agregar</a>

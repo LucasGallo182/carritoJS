@@ -45,10 +45,10 @@ function eliminarCarrito() {
 //Actualizo badge con length
 function actualizarBotonCarrito() {
     let componentes_carrito = cargarComponentesAlCarrito();
-    let contenido = `
-    <img src="./img/shopping-cart-icon.png" class="cart-icon" id="cart-icon">
-    <span class="bagde-cart-icon">${componentes_carrito.length}</span>
-    `
+    let contenido = `<div class="cart-png-content">
+        <img src="./img/shopping-cart-icon3.png" class="cart-icon" id="cart-icon">
+        <span class="bagde-cart-icon">${componentes_carrito.length}</span>
+    </div>`
     document.querySelector('.boton-carrito').innerHTML = contenido;
     cargarComponentesSeleccionadosAlCarrito();
 }
@@ -93,7 +93,11 @@ function cargarComponentesSeleccionadosAlCarrito() {
             <div class="detail-box">
                 <div class="cart-product-title">${componente.nombre}</div>
                 <div class="cart-price">$${componente.precio}</div>
-                <input type="number" value="${componente.cantidad}" min="0" class="cart-quantity">
+                <div class="cart-cantidades">
+                    <i class='bx bxs-plus-square cart-plus-less' onclick='agregarAlCarrito(${componente.id});'></i>
+                    <input type="text" value="${componente.cantidad}" min="0" class="cart-quantity">
+                    <i class='bx bxs-minus-square cart-plus-less' onclick='eliminarComponente(${componente.id});'></i>
+                </div>
             </div>
             <!-- Vaciar Carrito -->
             <i class='bx bxs-trash cart-remove' onclick='eliminarComponente(${componente.id});'></i>

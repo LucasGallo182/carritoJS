@@ -11,18 +11,6 @@ function validarFormulario() {
     (email.indexOf("@") > -1 && email.indexOf(".") > -1) ? emailValidation.innerHTML = `<span class="campoObligatorio">* </span>` : emailValidation.innerHTML = `<span class="campoObligatorio">* el e-mail ingresado no es correcto</span>`;
 
     if (nombre.length == 0 || direccion.length == 0 || numeroDir.length == 0 || localidad.length == 0 || telefono.length == 0 || email.length == 0) {
-<<<<<<< HEAD
-        Swal.fire({
-            position: 'bottom-end',
-            text: `Por favor complete los campos vacios`,
-            color: 'black',
-            background: '#DF3731',
-            showConfirmButton: false,
-            width: '21vw',
-            timer: 1500
-        })
-    }
-=======
         Toastify({
             text: "Por favor completa los campos obligatorios.",
             duration: 1500,
@@ -54,7 +42,6 @@ function validarFormulario() {
             });
     });
 
->>>>>>> carritojs
 }
 
 const btnFinalizar = document.getElementById("finalizar");
@@ -62,32 +49,12 @@ btnFinalizar.addEventListener("click", validarFormulario);
 
 //EmailJS
 function emailEnviado() {
-<<<<<<< HEAD
-    Swal.fire({
-        position: 'bottom-end',
-        text: `El e-mail ha sido enviado correctamente`,
-        color: 'black',
-        background: '#00dc85',
-        showConfirmButton: false,
-        width: '21vw',
-        timer: 2000
-    })
-}
-
-//forEach recorro array carrito
-/* let carrito = JSON.parse(localStorage.getItem("carrito"));
-for (e of carrito) {
-    let nombreProducto = e.nombre;
-} */
-
-=======
     Toastify({
         text: "El mensaje ha sido enviado correctamente",
         duration: 3000
         }).showToast();
 }
 
->>>>>>> carritojs
 emailjs.init('jhwcTeXw26aKnEX3B');
 
 document.getElementById('form')
@@ -111,8 +78,4 @@ document.getElementById('form')
                 btnFinalizar.value = 'Finalizar';
                 alert(JSON.stringify(err));
             });
-<<<<<<< HEAD
     });
-=======
-    });
->>>>>>> carritojs
