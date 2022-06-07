@@ -326,6 +326,8 @@ header {
     justify-content: center;
     gap: 1rem;
     margin-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid black;
 }
 
 .img-detalles {
@@ -352,8 +354,28 @@ header {
 }
 
 .precio-detalle-style {
-    border: 1px solid #00dc85;
+    background: #00dc85;
     padding: 10px;
+}
+
+.detalles-juegos {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.div-detalle-juegos {
+    width: 100px;
+    height: 120px;
+    text-align: center;
+}
+
+.img-juego-detalle {
+    width: 60px;
+}
+
+.p-juego-detalle {
+    font-weight: bold;
 }
 
 .botones-detalle {

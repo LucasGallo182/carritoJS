@@ -70,27 +70,79 @@ function detalleComponente() {
     let id = localStorage.getItem("ver_componente");
     let componente = buscarComponente(id);
     let divDetallesBox = document.querySelector(".detalles-box");
+    let divDetallesJuegos = document.querySelector(".detalles-juegos");
     contenidoDetalleHTML = "";
+    contenidoDetalleJuegosHTML = "";
     
     contenidoDetalleHTML += `
     <img src="${componente.imagen}" alt="${componente.nombre}" class="img-detalles">
-        <div class="componente-detalles-box">
-            <h3 class="detalle-titulo">${componente.nombre}</h3>
-            <h4>Descripción:</h4>
-            <ul>
-            ${componente.detalles}
-            </ul>
-            <h5 class="text-green">Hay Stock</h5>
-            <div class="botones-detalle">
-                <a href="./index.html" class="btn-volver">Volver</a>
-                <a href="#" onclick="agregarAlCarrito(${componente.id}); location.reload();" class="btn-agregar-detalle">Agregar</a>
-            </div>
-        <div class="precio-detalle">
-            <h4 class="precio-detalle-style">$${componente.precio}</h4>
+    <div class="componente-detalles-box">
+        <h3 class="detalle-titulo">${componente.nombre}</h3>
+        <h4>Descripción:</h4>
+        <ul>
+        ${componente.detalles}
+        </ul>
+        <h5 class="text-green">Hay Stock</h5>
+        <div class="botones-detalle">
+            <a href="./index.html" class="btn-volver">Volver</a>
+            <a href="#" onclick="agregarAlCarrito(${componente.id}); location.reload();" class="btn-agregar-detalle">Agregar</a>
         </div>
-        </div>
+    <div class="precio-detalle">
+        <h4 class="precio-detalle-style">$${componente.precio}</h4>
+    </div>
+    </div>
         `;
-        divDetallesBox.innerHTML = contenidoDetalleHTML;
+    divDetallesBox.innerHTML = contenidoDetalleHTML;
+
+    if (componente.tipo == 1) {
+        let urlFetch = '../api/juegoslow.json';
+        fetch(urlFetch)
+        .then((response) => response.json())
+        .then((data) => {
+            data.forEach(valor => {
+                contenidoDetalleJuegosHTML += `
+                        <div class="div-detalle-juegos">
+                            <div class="div-juego">
+                                <img src="${valor.imagen}" alt="" class="img-juego-detalle">
+                                <p class="p-juego-detalle">${valor.nombre}</p>
+                            </div>
+                        </div>`;
+                divDetallesJuegos.innerHTML = contenidoDetalleJuegosHTML;
+            })
+        })
+    } else if (componente.tipo == 2) {
+        let urlFetch = '../api/juegosmedium.json';
+        fetch(urlFetch)
+        .then((response) => response.json())
+        .then((data) => {
+            data.forEach(valor => {
+                contenidoDetalleJuegosHTML += `
+                        <div class="div-detalle-juegos">
+                            <div class="div-juego">
+                                <img src="${valor.imagen}" alt="" class="img-juego-detalle">
+                                <p class="p-juego-detalle">${valor.nombre}</p>
+                            </div>
+                        </div>`;
+                divDetallesJuegos.innerHTML = contenidoDetalleJuegosHTML;
+            })
+        })
+    } else {
+        let urlFetch = '../api/juegoshigh.json';
+        fetch(urlFetch)
+        .then((response) => response.json())
+        .then((data) => {
+            data.forEach(valor => {
+                contenidoDetalleJuegosHTML += `
+                        <div class="div-detalle-juegos">
+                            <div class="div-juego">
+                                <img src="${valor.imagen}" alt="" class="img-juego-detalle">
+                                <p class="p-juego-detalle">${valor.nombre}</p>
+                            </div>
+                        </div>`;
+                divDetallesJuegos.innerHTML = contenidoDetalleJuegosHTML;
+            })
+        })
+    }
 }
 
 detalleComponente();

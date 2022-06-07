@@ -1,0 +1,5 @@
+[
+    {"id": "1", "nombre": "League Of Legends", "imagen": "./img/data/juego01.png", "requisitos": "low"},
+    {"id": "3", "nombre": "Teamfight Tactics", "imagen": "./img/data/juego03.png", "requisitos": "low"},
+    {"id": "4", "nombre": "Heartstone", "imagen": "./img/data/juego04.png", "requisitos": "low"}
+]

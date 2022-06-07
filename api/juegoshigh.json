@@ -1,0 +1,11 @@
+[
+    {"id": "1", "nombre": "League Of Legends", "imagen": "./img/data/juego01.png", "requisitos": "low"},
+    {"id": "2", "nombre": "Valorant", "imagen": "./img/data/juego02.png", "requisitos": "medium"},
+    {"id": "3", "nombre": "Teamfight Tactics", "imagen": "./img/data/juego03.png", "requisitos": "low"},
+    {"id": "4", "nombre": "Heartstone", "imagen": "./img/data/juego04.png", "requisitos": "low"},
+    {"id": "5", "nombre": "CS: Go", "imagen": "./img/data/juego05.png", "requisitos": "medium"},
+    {"id": "6", "nombre": "PUBG: Battleground", "imagen": "./img/data/juego06.png", "requisitos": "high"},
+    {"id": "7", "nombre": "Fortnite", "imagen": "./img/data/juego07.png", "requisitos": "medium"},
+    {"id": "8", "nombre": "Dota 2", "imagen": "./img/data/juego08.png", "requisitos": "medium"},
+    {"id": "9", "nombre": "COD: Warzone", "imagen": "./img/data/juego09.png", "requisitos": "high"}
+]
